@@ -1,0 +1,32 @@
+f = open('EDIT_ME_commented_code.txt', 'r')
+content = f.read()
+content
+
+
+out1 = ''
+del_mode=0
+for i in content:
+    if i == '#':
+        del_mode=1
+    elif i == '\n':
+        out1+=i
+        del_mode=0
+    else:
+        if del_mode == 0:
+            out1+=i
+out1
+
+out2 = ''
+mem='\n'
+for i in out1:
+    if i == mem == '\n':
+        continue
+    else:
+        out2+=i
+    mem=i
+out2
+
+file = open("READY_clean_code.txt","w")
+file.write(out2)
+file.close()
+
